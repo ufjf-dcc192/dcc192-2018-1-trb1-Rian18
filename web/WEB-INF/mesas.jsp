@@ -11,34 +11,48 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Mesas</title>
-        <%@include file="/WEB-INF/jspf/bootstrap.jspf" %>>
+        <%@include file="/WEB-INF/jspf/bootstrap.jspf" %>
+
     </head>
     <body>
-        <table border="1">
+        <table class="table table-hover">
             <thead>
-                <tr>
+
+                <tr class="table-primary">
                     <th>Código</th>
                     <th>Mesa</th>
                     <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
-            <c:forEach var="mesa" items="${mesas}">
-                <tr>
-                    <td>${mesa.id}</td>
-                    <td>${mesa.descricao}</td>
-                    <td><a href = "pedidos.html?mesa=${mesa.id}&operacao=editar">Gerenciamento do Pedido</td>
-                <c:if test="${mesa.pedido != null}">
-                    <td><a href = "pedidos.html?mesa=${mesa.id}&operacao=visao">Visualizar</td>
-                </c:if>
-                </tr>
-            </c:forEach>
+                <c:forEach var="mesa" items="${mesas}">
+                    <c:choose >
+                        <c:when test="${mesa.pedido != null}">
+                            <tr>
+                                <td class="table-danger">${mesa.id}</td>
+                                <td class="table-danger">${mesa.descricao}</td>
+                                <td class="table-danger"><a href = "pedidos.html?mesa=${mesa.id}&operacao=editar">Gerenciamento do Pedido</td>
+                                <td class="table-danger"><a href = "pedidos.html?mesa=${mesa.id}&operacao=visao">Visualizar</td>
+                            </tr>
 
-        </tbody>
-    </table>
+                        </c:when>
+
+                        <c:when test="${mesa.pedido == null}">
+
+                            <tr>
+                                <td class="table-success">${mesa.id}</td>
+                                <td class="table-success">${mesa.descricao}</td>
+                                <td class="table-success"><a href = "pedidos.html?mesa=${mesa.id}&operacao=editar">Gerenciamento do Pedido</td>
+                            </tr>
+
+                        </c:when>
+                    </c:choose>
+                </c:forEach>
+            </tbody>
+        </table>
 
 
 
 
-</body>
+    </body>
 </html>
