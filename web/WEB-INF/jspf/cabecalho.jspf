@@ -1,0 +1,15 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="stylesheet" href="WEB-INF/css/main.css"/>
+        
+        <title>Restaurante WEB - Menu </title>
+    </head>
+    <body>
+        <h1>Escolha a mesa que deseja ocupar</h1>
+        <h2>Se mesa estiver verde, está livre</h2>
+        <h2>Se mesa estiver vermelha, está ocupada</h2>
+        
