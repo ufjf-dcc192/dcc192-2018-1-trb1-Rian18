@@ -3,7 +3,6 @@ package Servlets;
 
 import Modelos.Mesa;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,15 +20,13 @@ public class MesaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if("/index.html".equals(request.getServletPath()))
-        {
-            //anexo para a requisição 
+        {   //anexo para a requisição 
             request.setAttribute("mesas", Mesa.inicializaMesas());
             RequestDispatcher despachante = request.getRequestDispatcher("/WEB-INF/mesas.jsp");
             despachante.forward(request, response);
         
         }
     }
-
-    
+  
    
 }
